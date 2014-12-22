@@ -1,0 +1,29 @@
+#maindiv {
+    width: 70%;
+    height: auto;
+    text-align: center;
+    margin: auto;
+    border: 1px solid red;
+}
+
+#title {
+    width: 50%;
+    height: auto;
+    text-align: center;
+    margin: auto;
+}
+
+#todos {
+    border: 1px solid black;
+    margin: 0px 10px 0px 10px;
+}
+
+#input {
+    width: 60%;
+    height: 25px;
+}
+
+#inputbox {
+    border: 1px solid black;
+    margin 0px 10px 0px 10px;
+}

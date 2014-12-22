@@ -1,0 +1,154 @@
+<html>
+<head>
+     <style>
+     </style>
+
+<script>
+
+     var arr=new Array(); 
+     var data=document.getElementById("d");
+
+    console.log(arr);
+     function add()
+     {
+          var a=new Array();
+          var c=new Array();
+          var msg=document.getElementById('d');
+          var s = document.getElementsByName("s");
+          b=msg.value;
+          arr.push(b);
+          console.log(arr);
+          var len=arr.length;
+          a=arr.reverse();
+          output="";
+
+           for(i=0;i<s.length;i++)
+          {
+               if(s[i].checked == true)
+               {
+                    console.log(arr);
+                    c[i]=true;
+               }  
+          }
+          console.log(b);
+
+          for(var i=0 ;i<len; i++)
+          {
+               output +=  '<div style="clear:both; float:left; position:absolute;"ondblclick = "JavaScript:modified('+i+')">';
+               output += '<input type = "checkbox" ' ;
+               if(c[i-1]==true)
+               {
+                    output+='checked="checked"';
+               }
+               output+= ' name = "s" value = ' + i + '>';
+               output += String(a[i]);
+               output += '</div>';
+               output += '<br>';
+          } 
+          document.getElementById('list').innerHTML=output;
+          arr.reverse();
+     }
+
+     function enter(){
+
+          if(event.keyCode == 13){
+               add();
+               return;
+          }
+     }
+     alldel=function()
+          {
+               for(i=arr.length;i>0;i--)
+               {
+                    arr.pop(i);
+                    
+                    
+               }
+               document.getElementById('list').innerHTML="\n";
+               console.log(arr);
+          }
+
+
+
+
+function sub(){
+ var s = document.getElementsByName("s");
+ //alert(s.length);
+ cnt=0;
+ a=arr.reverse();
+ for(i=0;i<s.length;i++)
+     {
+          if(s[i].checked == true)
+          {
+               arr.splice(i-cnt,1);
+               console.log(arr);
+               cnt+=1;
+          }  
+     }
+          var len=arr.length;
+          output="";
+          for(var i=0 ;i<len; i++)
+          {
+               output +=  '<div style="clear:both; float:left; position:absolute; "ondblclick = "JavaScript:modified('+i+')">';
+               output += '<input type = "checkbox" name = "s" value = ' + i + '>';
+               output += String(a[i]);
+               output += '</div>';
+               output += '<br>';
+          } 
+          document.getElementById('list').innerHTML=output;
+          arr.reverse();
+}
+
+function modified(num)
+{
+     a=arr.reverse();
+     var c=new Array();
+     var modi = prompt();
+     var s = document.getElementsByName("s");
+     if(modi != null)
+     {
+               arr[num]=modi;
+     }
+     output="";
+     var len=arr.length;
+
+     for(i=0;i<s.length;i++)
+          {
+               if(s[i].checked == true)
+               {
+                    console.log(arr);
+                    c[i]=true;
+               }  
+          }
+          console.log(b);
+
+          for(var i=0 ;i<len; i++)
+          {
+               output +=  '<div style="clear:both; float:left; position:absolute;"ondblclick = "JavaScript:modified('+i+')">';
+               output += '<input type = "checkbox" ' ;
+               if(c[i]==true)
+               {
+                    output+='checked="checked"';
+               }
+               output+= ' name = "s" value = ' + i + '>';
+               output += String(a[i]);
+               output += '</div>';
+               output += '<br>';
+          } 
+          document.getElementById('list').innerHTML=output;
+arr.reverse();
+}
+
+</script>
+</head>
+
+<body>
+<form name = "form" method = "post" action ="javascript:data">
+     <input type="text" length="10" id="d" value = "" onkeydown="JavaScript:enter()"><!--onChange="document.all.value;"/>-->
+     <input type="button" value="추가"   onMouseUp="javascript:add()"/> 
+       <input type = "button" id = "del" value = "전체삭제" onMouseUp="javascript:alldel()">
+     <input type="button" value="check" onClick='sub();'>
+</form>
+<p>수정을 원한다면 더블클릭</p>
+<div id = 'list'>
+</body>

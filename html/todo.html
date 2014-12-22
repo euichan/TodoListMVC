@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <script>
+            function addlist()
+            {
+                var target = document.getElementById("todos");
+                var div = document.createElement("input type='checkbox' name='done' value='todo1'");
+                var list = document.createTextNode(document.getElementById('input').value);
+                div.appendChild(list);
+                target.appendChild(div);
+            }
+        </script>
+        <title>Todo List</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/todo.css">
+    </head>
+    <body>
+        <div id = maindiv>
+            <div id = title>
+                Todo List with MVC
+            </div>
+            <div id = inputbox>
+                <input id=input type="text">
+                <button onclick="addlist()">추가</button>
+            </div>
+            <div id = todos>
+
+            </div>
+        </div>
+    </body>
+</html>
