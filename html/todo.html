@@ -2,13 +2,59 @@
 <html>
     <head>
         <script>
-            function addlist()
-            {
-                var target = document.getElementById("todos");
-                var div = document.createElement("input type='checkbox' name='done' value='todo1'");
-                var list = document.createTextNode(document.getElementById('input').value);
-                div.appendChild(list);
+        var count = 0;
+            window.onload = function(){
+                document.getElementById('button').addEventListener('click',function(){
+                    if(document.getElementById('input').value == ''){
+                        alert("내용을 입력하세요");
+                    }
+
+                    else{
+                        Adddiv();
+                        Addbox();
+                        Addblank();
+                    }
+                })
+
+                document.getElementById('remove').addEventListener('click',function(){
+                    remove();
+                })
+            }
+
+            function remove(){
+                for(var i=0;i<count;i++){
+                   if(document.getElementById('div'+i).checked == true){
+                        alert("A");
+                   }
+                }   
+            }
+
+            function Adddiv(){
+                var target = document.getElementById('List');
+                var div =  document.createElement('div');
+                var text = document.createTextNode(document.getElementById('input').value)
+                div.appendChild(text);
+                div.className = 'div';
+                div.id = 'div'+count;
                 target.appendChild(div);
+            }
+
+            function Addbox(){
+                console.log(count);
+                var target = document.getElementById('List');
+                var input =  document.createElement('input');
+                input.type = 'checkbox';
+                input.className = 'input';
+                input.id = 'input'+count;
+                target.appendChild(input); 
+                count++;
+            }
+
+            function Addblank(){
+                var target = document.getElementById('List');
+                var div =  document.createElement('div');
+                target.appendChild(div); 
+
             }
         </script>
         <title>Todo List</title>
@@ -22,7 +68,7 @@
             </div>
             <div id = inputbox>
                 <input id=input type="text">
-                <button onclick="addlist()">추가</button>
+                <button id="button">추가</button>
             </div>
             <div id = todos>
 

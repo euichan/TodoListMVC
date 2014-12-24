@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>To do List</title>
+        <link rel="stylesheet" href="../css/todo.css">
+        <script>
+            var count = 0;
+            window.onload = function()
+            {
+                document.getElementById('button').addEventListener('click',function()
+                    {
+                    if(document.getElementById('input_text').value == '')
+                    {
+                        alert("내용을 입력하세요");
+                    }
+
+                    else
+                    {
+                        Adddiv();
+                        Addbox();
+                        Addblank();
+                    }
+                    })
+
+                document.getElementById('remove').addEventListener('click',function()
+                {
+                    remove();
+                })
+            }
+
+            function remove()
+            {
+                for(var i=0;i<count;i++)
+                {
+                    console.log(document.getElementById('input'+i))
+                    console.log(document.getElementById('input'+i).checked)
+                    if(document.getElementById('input'+i).checked == true)
+                    {
+                        alert("A");
+                    }
+                }
+            }
+
+            function Adddiv()
+            {
+                var target = document.getElementById('List');
+                var div =  document.createElement('div');
+                var text = document.createTextNode(document.getElementById('input_text').value)
+                div.appendChild(text);
+                div.className = 'div';
+                div.id = 'div'+count;
+                target.appendChild(div);
+            }
+
+            function Addbox()
+            {
+                console.log(count);
+                var target = document.getElementById('List');
+                var input =  document.createElement('input');
+                input.type = 'checkbox';
+                input.className = 'input';
+                input.id = 'input'+count;
+                target.appendChild(input); 
+                count++;
+            }
+
+            function Addblank()
+            {
+                var target = document.getElementById('List');
+                var div =  document.createElement('div');
+                target.appendChild(div); 
+
+            }
+        </script>
+    </head>
+    <body>
+        <div id="content">
+            <div id="title">To do List With MVC</div>
+            <div id="input">
+                <input type="text" id="input_text">
+                <button id="button">추가</button> 
+                <button id="remove">삭제</button>
+            </div>
+            <div id="List">
+
+            </div>
+        </div>
+    </body>
+</html>

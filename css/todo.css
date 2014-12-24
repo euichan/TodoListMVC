@@ -1,29 +1,63 @@
-#maindiv {
-    width: 70%;
-    height: auto;
-    text-align: center;
-    margin: auto;
-    border: 1px solid red;
-}
+#content
+            {
+                position: relative;
+                width:800px
+                    height:700px;
+                border : 2px solid hotpink;
+            }
 
-#title {
-    width: 50%;
-    height: auto;
-    text-align: center;
-    margin: auto;
-}
+            #title
+            {
+                font-size : 50px;
+                position: relative;
+                width:750px;
+                height:80px;
+                border-bottom: 2px solid red;
+                top:20px;
+                margin: auto;
+                text-align: center;
+            }
 
-#todos {
-    border: 1px solid black;
-    margin: 0px 10px 0px 10px;
-}
+            #List
+            {
+                position: relative;
+                width : 750px;
+                height:610px;
+                margin: auto;
+                top:20px;
+            }
 
-#input {
-    width: 60%;
-    height: 25px;
-}
+            #input
+            {
+                position: relative;
+                top: 30px;
+                width: 750px;
+                height :40px;
+                margin: auto;
+            }
 
-#inputbox {
-    border: 1px solid black;
-    margin 0px 10px 0px 10px;
-}
+            #input_text{
+                width:600px;
+                height:40px;
+            }
+
+            #button{
+                margin-left: 20px;
+                width : 100px;
+                height :40px;
+            }
+
+            #remove{
+                position: relative;
+                top:100px;
+                right :50px;
+            }
+
+            .div{
+                position: relative;
+                display: inline-block;
+            }
+            .input{
+                position: relative;
+                display: inline-block;
+            }
