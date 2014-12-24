@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="../css/todo.css">
         <script>
             var count = 0;
+            //추가 버튼을 눌렀을때 항목 추가 함수들 실행
             window.onload = function()
             {
                 document.getElementById('button').addEventListener('click',function()
@@ -28,7 +29,25 @@
                     remove();
                 })
             }
+            //엔터키를 눌렀을때 항목 추가 함수들 실행
+            function enter()
+            {
+                if(event.keyCode == 13)
+                {
+                    if(document.getElementById('input_text').value == '')
+                    {
+                        alert("내용을 입력하세요");
+                    }
 
+                    else
+                    {
+                        Adddiv();
+                        Addbox();
+                        Addblank();
+                    }
+                }
+            }
+            //항목 삭제 함수
             function remove()
             {
                 for(var i=0;i<count;i++)
@@ -37,11 +56,12 @@
                     console.log(document.getElementById('input'+i).checked)
                     if(document.getElementById('input'+i).checked == true)
                     {
-                        alert("A");
+                        alert("삭제되었습니다.");
                     }
                 }
             }
 
+            //항목 추가함수(텍스트노드)
             function Adddiv()
             {
                 var target = document.getElementById('List');
@@ -53,6 +73,7 @@
                 target.appendChild(div);
             }
 
+            //항목 추가함수(체크박스 노드)
             function Addbox()
             {
                 console.log(count);
@@ -65,12 +86,12 @@
                 count++;
             }
 
+            //줄 바꿔주는 함수
             function Addblank()
             {
                 var target = document.getElementById('List');
                 var div =  document.createElement('div');
-                target.appendChild(div); 
-
+                target.appendChild(div);
             }
         </script>
     </head>
@@ -78,8 +99,8 @@
         <div id="content">
             <div id="title">To do List With MVC</div>
             <div id="input">
-                <input type="text" id="input_text">
-                <button id="button">추가</button> 
+                <input type="text" id="input_text" onkeyDown="enter();">
+                <button id="button">추가</button>
                 <button id="remove">삭제</button>
             </div>
             <div id="List">

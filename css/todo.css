@@ -1,63 +1,70 @@
 #content
-            {
-                position: relative;
-                width:800px
-                    height:700px;
-                border : 2px solid hotpink;
-            }
+{
+    position: relative;
+    width:50%;
+    height: 600px;
+    text-align: center;
+    margin: auto;
+    border : 2px solid hotpink;
+}
 
-            #title
-            {
-                font-size : 50px;
-                position: relative;
-                width:750px;
-                height:80px;
-                border-bottom: 2px solid red;
-                top:20px;
-                margin: auto;
-                text-align: center;
-            }
+#title
+{
+    font-size : 50px;
+    position: relative;
+    width:750px;
+    height:80px;
+    border-bottom: 2px solid red;
+    top:20px;
+    margin: auto;
+    text-align: center;
+}
 
-            #List
-            {
-                position: relative;
-                width : 750px;
-                height:610px;
-                margin: auto;
-                top:20px;
-            }
+#List
+{
+    position: relative;
+    width : 40%;
+    height: auto;
+    margin: auto;
+    top: 50px;
+}
 
-            #input
-            {
-                position: relative;
-                top: 30px;
-                width: 750px;
-                height :40px;
-                margin: auto;
-            }
+#input
+{
+    position: relative;
+    top: 30px;
+    width: 750px;
+    height :40px;
+    margin: auto;
+}
 
-            #input_text{
-                width:600px;
-                height:40px;
-            }
+#input_text
+{
+    width:600px;
+    height:40px;
+}
 
-            #button{
-                margin-left: 20px;
-                width : 100px;
-                height :40px;
-            }
+#button
+{
+    margin-left: 20px;
+    width : 100px;
+    height :40px;
+}
 
-            #remove{
-                position: relative;
-                top:100px;
-                right :50px;
-            }
+#remove
+{
+    position: relative;
+    top:400px;
+    right :-400px;
+}
 
-            .div{
-                position: relative;
-                display: inline-block;
-            }
-            .input{
-                position: relative;
-                display: inline-block;
-            }
+.div
+{
+    position: relative;
+    display: inline-block;
+}
+.input
+{
+    position: relative;
+    display: inline-block;
+}
