@@ -1,0 +1,92 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>노드 추가 삭제</title>
+        <style>
+            .div{ position: relative; width:200px;}
+            .div_text,.div_check{ position: relative; display: inline-block; }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="Text_value" placeholder="입력하세요">
+        <button id="add" >노드추가 </button>
+        <button id="remove">노드삭제 </button>
+        <button id="contentAdd">내용추가 </button>
+        <button id="contentChange">내용변경 </button>
+        <div id="box"></div>
+    </body>
+    <script>
+        
+        //엔터키 입력
+
+        // 노드 생성
+        document.getElementById('add').addEventListener('click',function(){
+            var target = document.getElementById('box');
+            var div = document.createElement('div');
+            div.className = 'div';
+            target.appendChild(div);
+
+            var div_text = document.createElement('div');
+            div_text.appendChild(document.createTextNode(document.getElementById('Text_value').value));
+            div.appendChild(div_text);
+            div_text.className = 'div_text';
+
+            var div_check = document.createElement('input');
+            div_check.type = 'checkbox';
+            div.appendChild(div_check);
+            div_check.className = 'div_check';
+
+            document.getElementById('Text_value').value = ''; // 초기화
+        })
+
+        // 노드 삭제
+        document.getElementById('remove').addEventListener('click',function(){
+            var check = document.getElementsByClassName('div_check');
+            var div = document.getElementsByClassName('div');
+            for(var i=0;i<check.length;i++){
+                if(check[i].checked == true){
+                    div[i].parentNode.removeChild(div[i]);
+                }
+            }
+        })
+
+        // 내용 추가
+        document.getElementById('contentAdd').addEventListener('click',function(){
+            var check = document.getElementsByClassName('div_check');
+            var text1 = document.getElementsByClassName('div_text');
+            var div = document.getElementsByClassName('div');
+            for(var i=0;i<check.length;i++){
+                if(check[i].checked == true){
+                    var Text = prompt("추가 내용"); 
+                    text1[i].appendChild(document.createTextNode(Text));
+                }
+            }
+
+            for(var i=0;i<check.length;i++){
+                check[i].checked = false;
+            }
+        })
+
+        // 내용 변경
+        document.getElementById('contentChange').addEventListener('click',function(){
+            var check = document.getElementsByClassName('div_check');
+            var text1 = document.getElementsByClassName('div_text');
+            var div = document.getElementsByClassName('div');
+
+            var Element = document.createElement('div')
+
+            for(var i=0;i<check.length;i++){
+                if(check[i].checked == true){
+                    var Text = prompt("변경 내용"); 
+                    Element.appendChild(document.createTextNode(Text));
+                    text1[i].replaceChild(Element,text1[i].childNodes[0]);
+                }
+            }
+
+            for(var i=0;i<check.length;i++){
+                check[i].checked = false;
+            }
+        })
+    </script>
+</html>
